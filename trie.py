@@ -13,7 +13,7 @@ class Node( object ):
                 self.nodes[letter] = Node()
                 print letter + " inserted"
                 if index == len( word ) - 1:
-                    self.word = originalWord
+                    self.nodes[letter].word = originalWord
                     print originalWord + " added"
                 self.nodes[letter].insert( word[ index + 1: ], originalWord )
                 return
@@ -26,6 +26,7 @@ class Node( object ):
             else:
                 self.nodes[node].getWords()
 
+
 class Trie( object ):
 
     def __init__( self ):
@@ -37,6 +38,9 @@ class Trie( object ):
     def getAllWords( self ):
         self.root.getWords()
 
+    # def getPrefixWords( self, prefix ):
+    #     self.root.getRelatedWords( prefix )
+
 
 
 myTrie = Trie()
@@ -45,5 +49,10 @@ myTrie.insertWord( "sisil" )
 myTrie.insertWord( "sisid" )
 myTrie.insertWord( "Theertha" )
 myTrie.insertWord( "Theerdha" )
+myTrie.insertWord( "Theerdhd" )
+myTrie.insertWord( "Theerthd" )
 
+print "\n\nThe words currently in the trie are:\n"
 myTrie.getAllWords()
+
+#myTrie.getPrefixWords("si")
